@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: sap
+    description: Fonte de dados da Adventure Works
+    schema: sap_adw
+    tables:
+      - name: product
+        description: Tabela com info de produtos
+        columns:
+          - name: productid
+            description: PK da tabela product
+            tests:
+              - unique
+              - not_null
+      - name: productcategory
+      - name: productsubcategory
