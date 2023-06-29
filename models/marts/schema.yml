@@ -1,0 +1,10 @@
+# version: 2
+
+# models:
+#   - name: dim_products
+#     description: 
+#     columns:
+#         - name: product_sk
+#           description: Sugorrate Key
+#           tests:
+#             - not_null

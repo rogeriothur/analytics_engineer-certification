@@ -1,19 +1,19 @@
-WITH src_salesreason AS (
+WITH src_sales_reason AS (
     SELECT * FROM {{ source('sap', 'salesreason') }}
 ),
 
-salesreasons AS (
+sales_reasons AS (
     SELECT
         -- primary key
-       salesreasonid
+       salesreasonid AS sales_reason_id
 
         -- strings
-        , name
-        , reasontype
+        , name AS sales_reason_name
+        , reasontype AS reason_type
 
         -- date & timestamp
         , TO_TIMESTAMP(MODIFIEDDATE) AS modified_date
     FROM
-        src_salesreason
+        src_sales_reason
 )
-SELECT * FROM salesreasons
+SELECT * FROM sales_reasons
