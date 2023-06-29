@@ -2,7 +2,7 @@ WITH src_salesreason AS (
     SELECT * FROM {{ source('sap', 'salesreason') }}
 ),
 
-salesreason AS (
+salesreasons AS (
     SELECT
         -- primary key
        salesreasonid
@@ -12,8 +12,8 @@ salesreason AS (
         , reasontype
 
         -- date & timestamp
-        , DATE(modifieddate, 'AUTO') AS modifieddate
+        , TO_TIMESTAMP(MODIFIEDDATE) AS modified_date
     FROM
         src_salesreason
 )
-SELECT * FROM salesreason
+SELECT * FROM salesreasons

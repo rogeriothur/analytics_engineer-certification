@@ -5,43 +5,43 @@ WITH src_product AS (
 products AS (
     SELECT
         -- primary key
-        productid
+        productid AS product_id
 
         -- foreign keys
-        , productmodelid
-        , productsubcategoryid
+        , productmodelid AS product_model_id
+        , productsubcategoryid AS product_subcategory_id
 
         -- strings
-        , productnumber
-        , name 
+        , productnumber AS product_number
+        , name AS product_name
         , class
         , color
         , size
-        , sizeunitmeasurecode
-        , weightunitmeasurecode
+        , sizeunitmeasurecode AS size_unit_measure_code
+        , weightunitmeasurecode AS weight_unit_measure_code
         , style
-        , productline
+        , productline AS product_line
 
         -- numeric
-        , standardcost
-        , listprice
-        , safetystocklevel
+        , standardcost AS standard_cost
+        , listprice AS list_price
+        , safetystocklevel AS safety_stock_level
         , weight
-        , daystomanufacture
-        , reorderpoint
+        , daystomanufacture As days_to_manufacture
+        , reorderpoint AS reorder_point
         
         -- boolean
-        , makeflag
-        , finishedgoodsflag
+        , makeflag AS make_flag
+        , finishedgoodsflag AS finished_goods_flag
 
         -- date & timestamp
-        , TO_TIMESTAMP(sellstartdate) AS sellstartdate
-        , TO_TIMESTAMP(sellenddate) AS sellenddate
-        , TO_TIMESTAMP(MODIFIEDDATE) AS modifieddate
+        , TO_TIMESTAMP(sellstartdate) AS sell_start_date
+        , TO_TIMESTAMP(sellenddate) AS sell_end_date
+        , TO_TIMESTAMP(MODIFIEDDATE) AS modified_date
 
         -- unique key
-        , rowguid
+        , rowguid AS row_guid
     FROM 
-        {{ source('sap', 'product') }}
+        src_product
 )
 SELECT * FROM products

@@ -5,27 +5,27 @@ WITH src_person AS (
 person AS (
     SELECT
         -- primary key
-        businessentityid
+        businessentityid AS business_entity_id
 
         -- strings
-        , persontype
+        , persontype AS person_type
         , title
-        , firstname
-        , middlename
-        , lastname
+        , firstname AS first_name
+        , middlename AS middle_name
+        , lastname As last_name
         , suffix
 
         -- numeric
-        , emailpromotion
+        , emailpromotion AS email_promotion
 
         -- boolean
-        , namestyle
+        , namestyle AS name_style
 
         -- date & timestamp
-        , TO_TIMESTAMP(MODIFIEDDATE) AS modifieddate
+        , TO_TIMESTAMP(MODIFIEDDATE) AS modified_date
 
         -- unique key
-        , rowguid
+        , rowguid AS row_guid
     FROM
         src_person
 )

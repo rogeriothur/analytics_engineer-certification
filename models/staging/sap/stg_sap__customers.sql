@@ -5,18 +5,18 @@ WITH src_customer AS (
 customers AS (
     SELECT
         -- primary key
-        customerid
+        customerid AS customer_id
 
         -- foreign keys
-        , personid
-        , storeid
-        , territoryid
+        , personid AS person_id
+        , storeid AS store_id
+        , territoryid AS territory_id
 
         -- date & timestamp
-        , TO_TIMESTAMP(MODIFIEDDATE) AS modifieddate
+        , TO_TIMESTAMP(MODIFIEDDATE) AS modified_date
 
         -- unique key
-        , rowguid
+        , rowguid AS row_guid
     FROM
         src_customer
 )
