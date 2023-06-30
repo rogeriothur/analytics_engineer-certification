@@ -38,6 +38,9 @@ sources:
 
       - name: salesorderheader
         description: General sales order information
+      
+      - name: salesorderheadersalesreason
+        description: Cross-reference table mapping sales orders to sales reason codes
 
       - name: salesperson
         description: Sales representative current information
