@@ -1,10 +1,14 @@
+
 # version: 2
 
 # models:
-#   - name: dim_products
-#     description: 
+#   - name: fct_sales
+#     description: This is the sales fact table
 #     columns:
-#         - name: product_sk
-#           description: Sugorrate Key
-#           tests:
-#             - not_null
+#       - name: SALES_SK
+#         description: This is the table's surrogate key
+#         tests:
+#           - unique
+#           - not_null
+#       - name: CARD_TYPE
+#         description: Credit card name

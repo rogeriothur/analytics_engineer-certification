@@ -25,7 +25,7 @@ join_tables AS (
         , c.customer_sk AS customer_fk
         , l.location_sk AS location_fk
         , p.product_sk AS product_fk
-        , s.sales_order_sk AS sales_reason_sk
+        , s.sales_order_sk AS sales_reason_fk
         , s.sales_reason_name
         , sod.special_offer_id
         , sod.credit_card_id

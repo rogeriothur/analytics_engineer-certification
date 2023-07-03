@@ -28,7 +28,14 @@ int_sales__order_details AS (
         , soh.freight
         , soh.purchase_order_number
         , soh.revision_number
-        , soh.status
+        , case
+            when soh.status = 1 then 'In process'
+            when soh.status = 2 then 'Approved'
+            when soh.status = 3 then 'Backordered'
+            when soh.status = 4 then 'Rejected'
+            when soh.status = 5 then 'Shipped'
+            when soh.status = 6 then 'Cancelled'
+          end as status
         , soh.subtotal
         , soh.tax_amount
         , soh.total_due
