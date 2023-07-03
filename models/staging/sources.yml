@@ -18,9 +18,6 @@ sources:
       - name: customer
         description: Current customer information
 
-      - name: employee
-        description: Employee information such as salary, department, and title
-
       - name: person
         description: Human beings involved with AdventureWorks employees, customer contacts, and vendor contacts
 
@@ -41,9 +38,6 @@ sources:
       
       - name: salesorderheadersalesreason
         description: Cross-reference table mapping sales orders to sales reason codes
-
-      - name: salesperson
-        description: Sales representative current information
 
       - name: salesreason
         description: Lookup table of customer purchase reasons
