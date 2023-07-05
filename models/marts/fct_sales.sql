@@ -26,7 +26,12 @@ join_tables AS (
         , l.location_sk AS location_fk
         , p.product_sk AS product_fk
         , s.sales_order_sk AS sales_reason_fk
-        , s.sales_reason_name
+
+        , case
+            when s.sales_reason_name is null then 'Unknown'
+            else s.sales_reason_name
+          end sales_reason_name
+
         , sod.special_offer_id
         , sod.credit_card_id
         , sod.card_type
@@ -39,6 +44,7 @@ join_tables AS (
         , sod.subtotal
         , sod.tax_amount
         , sod.total_due
+        , sod.net_total
         , sod.order_date
         , l.city
         , l.state_province_name

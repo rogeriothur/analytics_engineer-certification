@@ -21,13 +21,19 @@ int_sales__order_details AS (
         , soh.territory_id
         , soh.bill_to_address_id
         , soh.credit_card_id
-        , cr.card_type
+
+        , case
+            when cr.card_type is null then 'No Card'
+            else cr.card_type
+          end as card_type
+
         , sod.unit_price
         , sod.unit_price_discount
         , sod.order_qty
         , soh.freight
         , soh.purchase_order_number
         , soh.revision_number
+
         , case
             when soh.status = 1 then 'In process'
             when soh.status = 2 then 'Approved'
@@ -36,9 +42,11 @@ int_sales__order_details AS (
             when soh.status = 5 then 'Shipped'
             when soh.status = 6 then 'Cancelled'
           end as status
+
         , soh.subtotal
         , soh.tax_amount
         , soh.total_due
+        , sod.unit_price * sod.order_qty * (1 - sod.unit_price_discount) as net_total
         , soh.online_order_flag
         , soh.order_date
     FROM
