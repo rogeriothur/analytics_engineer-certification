@@ -1,0 +1,33 @@
+
+version: 2
+
+models:
+  - name: dim_customers
+    description: This is the customer dimension table
+    columns:
+      - name: customer_sk
+        description: This is the table's surrogate key
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: Primary key
+      
+      - name: person_id
+        description: Foreign key to Person.BusinessEntityID (SAP)
+      
+      - name: store_id
+        description: Foreign key to Store.BusinessEntityID
+      
+      - name: territory_id
+        description: ID of the territory in which the customer is located
+      
+      - name: person_type
+        description: Primary type of person SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact
+
+      - name: customer
+        description: Customer name
+        
+      - name: email_promotion
+        description: 	0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners

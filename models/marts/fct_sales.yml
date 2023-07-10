@@ -1,0 +1,87 @@
+
+version: 2
+
+models:
+  - name: fct_sales
+    description: This is the sales fact table
+    columns:
+      - name: sales_sk
+        description: This is the table's surrogate key
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_fk
+        description: Foreign key that links the fact table with the dim_customers
+        tests:
+          - relationships:
+              field: customer_sk
+              to: ref('dim_customers')
+      
+      - name: customer
+        description: Customer name
+
+      - name: location_fk
+        description: Foreign key that links the fact table with the dim_locations
+        tests:
+          - relationships:
+              field: location_sk
+              to: ref('dim_locations')
+
+      - name: product_fk
+        description: Foreign key that links the fact table with the dim_produtcs
+        tests:
+          - relationships:
+              field: product_sk
+              to: ref('dim_products')
+
+      - name: sales_reason_fk
+        description: Foreign key that links the fact table with the dim_sales_reasons
+
+      - name: sales_reason_name
+        description: Sales reason description
+
+      - name: product_name
+        description: 	Name of the product
+
+      - name: product_number
+        description: Number of the product
+
+      - name: city
+        description: Name of the city
+
+      - name: state_province_name
+        description: Name of the state/province
+
+      - name: country_region_name
+        description: Name of the country
+
+      - name: card_type
+        description: Credit card name
+
+      - name: credit_card_id
+        description: Primary key for CreditCard record
+      
+      - name: freight
+        description: Shipping cost
+      
+      - name: net_total
+        description: Total net sales
+      
+      - name: order_date
+        description: Dates the sales order was created
+      
+      - name: order_qty
+        description: Quantity ordered per product
+
+      - name: unit_price_discount
+        description: Discount amount
+      
+      - name: unit_price
+        description: Selling price of a single product
+      
+      - name: total_due
+        description: Total due from customer. Computed as Subtotal + TaxAmt + Freight
+      
+      - name: tax_amount
+        description: Tax amount

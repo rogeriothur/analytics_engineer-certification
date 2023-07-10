@@ -1,0 +1,36 @@
+
+version: 2
+
+models:
+  - name: dim_locations
+    description: This is the location dimension table
+    columns:
+      - name: location_sk
+        description: This is the table's surrogate key
+        tests:
+          - unique
+          - not_null
+
+      - name: address_id
+        description: Primary key for Address records
+      
+      - name: state_province_id
+        description: Unique identification number for the state or province. Foreign key to StateProvince table
+      
+      - name: country_region_code
+        description: ISO standard country or region code
+      
+      - name: state_province_code
+        description: ISO standard state or province code
+      
+      - name: territory_id
+        description: ID of the territory in which the state or province is located
+      
+      - name: city
+        description: Name of the city
+      
+      - name: state_province_name
+        description: Name of the state/province
+
+      - name: country_region_name
+        description: Name of the country

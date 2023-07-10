@@ -8,18 +8,33 @@ sources:
     tables:
       - name: address
         description: Street address information for customers, employees, and vendors
+        columns:
+          - name: addressid
+            description: It's a primary key from addresses table
 
       - name: countryregion
         description: Lookup table containing the ISO standard codes for countries and regions
+        columns:
+          - name: countryregioncode
+            description: It is a primary key from country table
 
       - name: creditcard
         description: Customer credit card information
+        columns:
+          - name: creditcardid
+            description: It is a primary key from credit card table
 
       - name: customer
         description: Current customer information
+        columns:
+          - name: customerid
+            description: It is a foreign key from BusinessEntityID as a unique key from customer table
 
       - name: person
         description: Human beings involved with AdventureWorks employees, customer contacts, and vendor contacts
+        columns:
+          - name: businessentityid
+            description: It is a foreign key from BusinessEntityID as a unique key from person table
 
       - name: product
         description: Products sold or used in the manfacturing of sold products
@@ -32,16 +47,31 @@ sources:
     
       - name: salesorderdetail
         description: Individual products associated with a specific sales order
+        columns:
+          - name: salesorderdetailid
+            description: It is a primary key from sales order details table
 
       - name: salesorderheader
         description: General sales order information
+        columns:
+          - name: salesorderid
+            description: It is a primary key from sales order table
       
       - name: salesorderheadersalesreason
         description: Cross-reference table mapping sales orders to sales reason codes
+        columns:
+          - name: salesorderid
+            description: It is a foreign key from SalesOrderHeader to make a link with sales reason
 
       - name: salesreason
         description: Lookup table of customer purchase reasons
+        columns:
+          - name: salesreasonid
+            description: It is a primary key from sales reason table
 
       - name: stateprovince
         description: State and province lookup table
+        columns:
+          - name: stateprovinceid
+            description: It is a primary key from state province table.
 

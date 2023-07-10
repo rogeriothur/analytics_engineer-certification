@@ -7,7 +7,7 @@ locations AS (
 ),
 
 products AS (
-    SELECT * FROM {{ ref('dim_produtcs') }}
+    SELECT * FROM {{ ref('dim_products') }}
 ),
 
 sales_reasons AS (
